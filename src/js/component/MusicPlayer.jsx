@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import playbutton from "../../img/playbutton.png";
 
 //create your first component
 const MusicPlayer = () => {
@@ -56,7 +54,7 @@ const MusicPlayer = () => {
 											<span className="song_play_button ">
 												<img
 													clasName="songlistbutton"
-													src="https://img.icons8.com/flat-round/64/000000/play--v1.png"
+													src={playbutton}
 												/>
 											</span>
 										</li>
