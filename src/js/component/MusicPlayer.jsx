@@ -51,9 +51,9 @@ const MusicPlayer = () => {
 					  })
 					: ""}
 			</ul>
-
-			<audio controls>
-				<source src={urlsong} type="audio/mpeg" />
+			<audio controls autoPlay src={urlsong}>
+				Your browser does not support the
+				<code>audio</code> element.
 			</audio>
 		</>
 	);
