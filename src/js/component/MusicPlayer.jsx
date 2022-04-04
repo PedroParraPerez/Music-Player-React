@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import playbutton from "../../img/playbutton.png";
-
+import nextsong from "../../img/next_song.png";
+import lastsong from "../../img/last_song.png";
 //create your first component
 const MusicPlayer = () => {
 	const [songList, setSongList] = useState("");
@@ -29,53 +30,71 @@ const MusicPlayer = () => {
 
 	return (
 		<>
-			{" "}
-			<div className="  justify-content-center mt-5  wrap">
-				<div className="d-block">
-					<h1 className="title text-center fw-bold text-decoration-underline mb-4 pt-3">
-						Music Player
-					</h1>
-
-					<ul className="p-0">
-						{songList
-							? songList.map((song, i) => {
-									return (
-										<li
-											onClick={() => {
-												setUrlsong(
-													"https://assets.breatheco.de/apis/sound/" +
-														song.url
-												);
-												setNamesong(song.name);
-											}}
-											className="song d-flex justify-content-between text-capitalize p-1"
-											key={i}>
-											{song.name}
-											<span className="song_play_button ">
-												<img
-													clasName="songlistbutton"
-													src={playbutton}
-												/>
-											</span>
-										</li>
-									);
-							  })
-							: ""}
-					</ul>
-					<div className="song_playing">
-						<span className="fw-bold isplaying">
-							Esta sonando:{" "}
-						</span>
-						<span className="fw-bold text-decoration-underline isplaying">
-							{namesong ? namesong.toUpperCase() : ""}
-						</span>
+			<div className=" container-fluid justify-content-center mt-5  wrap">
+				<div className="row ">
+					<div className="col-12">
+						<h1 className="title text-center fw-bold text-decoration-underline mb-4 pt-3">
+							Music Player
+						</h1>
 					</div>
-					<audio
-						className="audiocontrols mt-3"
-						controls
-						autoPlay
-						src={urlsong}
-					/>
+					<div className="row">
+						<div className="col-12">
+							<ul className="p-0">
+								{songList
+									? songList.map((song, i) => {
+											return (
+												<li
+													onClick={() => {
+														setUrlsong(
+															"https://assets.breatheco.de/apis/sound/" +
+																song.url
+														);
+														setNamesong(song.name);
+													}}
+													className="song d-flex justify-content-between text-capitalize p-1"
+													key={i}>
+													{song.name}
+													<span className="song_play_button ">
+														<img
+															className="songlistbutton"
+															src={playbutton}
+														/>
+													</span>
+												</li>
+											);
+									  })
+									: ""}
+							</ul>
+						</div>
+					</div>
+
+					<div className="row song_playing">
+						<div className="col-12">
+							<span className="fw-bold isplaying">
+								Esta sonando:{" "}
+							</span>
+							<span className="fw-bold text-decoration-underline isplaying">
+								{namesong ? namesong.toUpperCase() : ""}
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-2 d-flex justify-content-center">
+						<img clasName="song_controls" src={lastsong} />
+					</div>
+					<div className="col-8">
+						<audio
+							className="audiocontrols mt-3"
+							controls
+							autoPlay
+							src={urlsong}
+						/>
+					</div>
+					<div className="col-2 d-flex justify-content-center">
+						<img clasName="song_controls" src={nextsong} />
+					</div>
 				</div>
 			</div>
 		</>

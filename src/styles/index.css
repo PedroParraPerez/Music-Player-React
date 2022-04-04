@@ -1,7 +1,6 @@
 .wrap{
-    width: 20rem;
-    display: flex;
-    margin: auto;
+    width: 30rem;
+    
     background-color: rgba(128, 128, 128, 0.63);
 }
 .song{
@@ -21,11 +20,19 @@
     color: black;
 }
 
-img, svg{
+.next_song{
+    width: 10rem;
+    height: 10rem;
+}
+
+
+img {
     width: 1.5rem;
-    margin-right: 0.7rem;
+    cursor: pointer;
     
 }
+
 body{
     background-image: url("https://cmonmurcia.com/wp-content/uploads/2020/11/M%C3%BAsica-VS-Juegos.png");
 }
+
