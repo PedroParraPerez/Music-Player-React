@@ -30,9 +30,9 @@ const MusicPlayer = () => {
 	return (
 		<>
 			{" "}
-			<div className="  justify-content-center  wrap">
+			<div className="  justify-content-center mt-5  wrap">
 				<div className="d-block">
-					<h1 className="title text-center fw-bold text-decoration-underline mb-4">
+					<h1 className="title text-center fw-bold text-decoration-underline mb-4 pt-3">
 						Music Player
 					</h1>
 
@@ -48,7 +48,7 @@ const MusicPlayer = () => {
 												);
 												setNamesong(song.name);
 											}}
-											className="song d-flex justify-content-between text-capitalize"
+											className="song d-flex justify-content-between text-capitalize p-1"
 											key={i}>
 											{song.name}
 											<span className="song_play_button ">
@@ -63,8 +63,10 @@ const MusicPlayer = () => {
 							: ""}
 					</ul>
 					<div className="song_playing">
-						<span className="fw-bold">Esta sonando: </span>
-						<span className="fw-bold text-decoration-underline">
+						<span className="fw-bold isplaying">
+							Esta sonando:{" "}
+						</span>
+						<span className="fw-bold text-decoration-underline isplaying">
 							{namesong ? namesong.toUpperCase() : ""}
 						</span>
 					</div>
