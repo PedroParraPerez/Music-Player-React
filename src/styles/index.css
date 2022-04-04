@@ -1,5 +1,8 @@
 .song{
-    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+   
+    padding: 0.5rem 0 0.5rem 0;
     list-style:none;
     border-bottom: 2px solid black;
 }
@@ -12,5 +15,5 @@
 
  img, svg{
     width: 1.5rem;
-    margin: 0.1rem;
+    
 }
