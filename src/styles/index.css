@@ -1,18 +1,33 @@
+.wrap{
+    width: 20rem;
+    display: flex;
+    margin: auto;
+    margin-top: 2.5rem;
+    background-color: rgba(128, 128, 128, 0.63);
+}
 .song{
     display: flex;
     align-items: center;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     list-style:none;
+   font-weight: bold;
+   cursor: pointer;
     border-bottom: 2px solid black;
+}
+.song:hover{
+    color: white;
+    background-color: rgb(61, 61, 61);
 }
 .song_play_button{
     cursor: pointer;
 }
-.song{
-    cursor: pointer;
-}
+
 
  img, svg{
     width: 1.5rem;
+    margin-right: 0.7rem;
     
+}
+body{
+    background-image: url("https://cmonmurcia.com/wp-content/uploads/2020/11/M%C3%BAsica-VS-Juegos.png");
 }

@@ -32,9 +32,11 @@ const MusicPlayer = () => {
 	return (
 		<>
 			{" "}
-			<div className="d-flex m-0 mt-5 justify-content-center  wrap">
+			<div className="  justify-content-center  wrap">
 				<div className="d-block">
-					<h1 className="title text-center">Music Player</h1>
+					<h1 className="title text-center fw-bold text-decoration-underline mb-4">
+						Music Player
+					</h1>
 
 					<ul className="p-0">
 						{songList
@@ -63,7 +65,7 @@ const MusicPlayer = () => {
 							: ""}
 					</ul>
 					<div className="song_playing">
-						<span>Esta sonando: </span>
+						<span className="fw-bold">Esta sonando: </span>
 						<span>{namesong ? namesong.toUpperCase() : ""}</span>
 					</div>
 					<audio
