@@ -1,0 +1,10 @@
+.song{
+    margin-top: 0.5rem;
+    list-style:none;
+    border-bottom: 2px solid black;
+}
+.song_play_button{
+    cursor: pointer;
+}
+
+
