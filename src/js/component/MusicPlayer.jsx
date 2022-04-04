@@ -66,7 +66,9 @@ const MusicPlayer = () => {
 					</ul>
 					<div className="song_playing">
 						<span className="fw-bold">Esta sonando: </span>
-						<span>{namesong ? namesong.toUpperCase() : ""}</span>
+						<span className="fw-bold text-decoration-underline">
+							{namesong ? namesong.toUpperCase() : ""}
+						</span>
 					</div>
 					<audio
 						className="audiocontrols mt-3"

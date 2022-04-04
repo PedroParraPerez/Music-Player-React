@@ -12,6 +12,7 @@
     list-style:none;
    font-weight: bold;
    cursor: pointer;
+   color: black;
     border-bottom: 2px solid black;
 }
 .song:hover{
@@ -21,7 +22,9 @@
 .song_play_button{
     cursor: pointer;
 }
-
+.fw-bold{
+    color: black;
+}
 
  img, svg{
     width: 1.5rem;
