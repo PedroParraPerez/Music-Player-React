@@ -41,20 +41,21 @@ const MusicPlayer = () => {
 							? songList.map((song, i) => {
 									return (
 										<li
-											className="song d-flex justify-content-between"
+											onClick={() => {
+												setUrlsong(
+													"https://assets.breatheco.de/apis/sound/" +
+														song.url
+												);
+												setNamesong(song.name);
+											}}
+											className="song d-flex justify-content-between text-capitalize"
 											key={i}>
 											{song.name}
-											<span
-												className="song_play_button"
-												onClick={() => {
-													setUrlsong(
-														"https://assets.breatheco.de/apis/sound/" +
-															song.url
-													);
-													setNamesong(song.name);
-													console.log(urlsong);
-												}}>
-												Reproducir
+											<span className="song_play_button ">
+												<img
+													clasName="songlistbutton"
+													src="https://img.icons8.com/flat-round/64/000000/play--v1.png"
+												/>
 											</span>
 										</li>
 									);
@@ -63,7 +64,7 @@ const MusicPlayer = () => {
 					</ul>
 					<div className="song_playing">
 						<span>Esta sonando: </span>
-						<span>{namesong ? namesong : ""}</span>
+						<span>{namesong ? namesong.toUpperCase() : ""}</span>
 					</div>
 					<audio
 						className="audiocontrols mt-3"
