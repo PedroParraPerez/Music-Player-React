@@ -70,10 +70,7 @@ const MusicPlayer = () => {
 						className="audiocontrols mt-3"
 						controls
 						autoPlay
-						src={urlsong}>
-						Your browser does not support the
-						<code>audio</code> element.
-					</audio>
+						src={urlsong}></audio>
 				</div>
 			</div>
 		</>
