@@ -82,5 +82,3 @@ const MusicPlayer = () => {
 };
 
 export default MusicPlayer;
-
-// text.replace("Microsoft", "sdffds");
