@@ -72,7 +72,8 @@ const MusicPlayer = () => {
 						className="audiocontrols mt-3"
 						controls
 						autoPlay
-						src={urlsong}></audio>
+						src={urlsong}
+					/>
 				</div>
 			</div>
 		</>
