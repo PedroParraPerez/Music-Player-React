@@ -1,12 +1,38 @@
-
-/* 
-
-    You can write your own styles here...
+.wrap{
+    width: 30rem;
     
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+    background-color: rgba(128, 128, 128, 0.63);
+}
+.song{
+    align-items: center;
+    list-style:none;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    border-bottom: 2px solid black;
+}
+.song:hover{
+    color: white;
+    background-color: rgb(61, 61, 61);
+}
 
-*/
+.title, .isplaying{
+    color: black;
+}
+
+.next_song{
+    width: 10rem;
+    height: 10rem;
+}
+
+
+img {
+    width: 1.5rem;
+    cursor: pointer;
+    
+}
+
+body{
+    background-image: url("https://cmonmurcia.com/wp-content/uploads/2020/11/M%C3%BAsica-VS-Juegos.png");
+}
+
