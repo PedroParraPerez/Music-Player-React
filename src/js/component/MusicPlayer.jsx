@@ -41,7 +41,7 @@ const MusicPlayer = () => {
 						<div className="col-12">
 							<ul className="p-0">
 								{songList
-									? songList.map((song, i) => {
+									? songList.map((song, index) => {
 											return (
 												<li
 													onClick={() => {
@@ -52,7 +52,7 @@ const MusicPlayer = () => {
 														setNamesong(song.name);
 													}}
 													className="song d-flex justify-content-between text-capitalize p-1"
-													key={i}>
+													key={index}>
 													{song.name}
 													<span className="song_play_button ">
 														<img
