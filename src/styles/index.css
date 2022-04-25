@@ -19,17 +19,25 @@
 .title, .isplaying{
     color: black;
 }
+.buttons_song{
+    display: flex;
+    margin: auto;
+    
 
-.next_song{
-    width: 10rem;
-    height: 10rem;
 }
-
+.NextAndLast{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    
+    align-items: center;
+}
 
 img {
     width: 1.5rem;
     cursor: pointer;
-    
 }
 
 body{

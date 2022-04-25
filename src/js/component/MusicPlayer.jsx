@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import playbutton from "../../img/playbutton.png";
-import nextsong from "../../img/next_song.png";
-import lastsong from "../../img/last_song.png";
+
 //create your first component
 const MusicPlayer = () => {
-	const [songList, setSongList] = useState("");
-	const [urlsong, setUrlsong] = useState("");
-	const [namesong, setNamesong] = useState("");
+	let URLAPI = "https://assets.breatheco.de/apis/sound";
+	const [songList, setSongList] = useState([]);
+	const [isRunning, setIsRunning] = useState({});
 
 	useEffect(() => {
 		TakeSongList();
 	}, []);
 
 	const TakeSongList = () => {
-		fetch("https://assets.breatheco.de/apis/sound/songs", {
+		fetch(URLAPI.concat("/songs"), {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
 		})
@@ -26,6 +25,46 @@ const MusicPlayer = () => {
 			.catch((error) => {
 				console.log("Error", error);
 			});
+	};
+
+	const NextSong = () => {
+		let position = isRunning.position + 1;
+
+		if (position < songList.length) {
+			setIsRunning({
+				position: position,
+				name: songList[position].name,
+				url: songList[position].url,
+				id: songList[position].id,
+			});
+		} else {
+			setIsRunning({
+				position: 0,
+				name: songList[0].name,
+				url: songList[0].url,
+				id: songList[0].id,
+			});
+		}
+	};
+
+	const LastSong = () => {
+		let position = isRunning.position - 1;
+
+		if (position > 0) {
+			setIsRunning({
+				position: position,
+				name: songList[position].name,
+				url: songList[position].url,
+				id: songList[position].id,
+			});
+		} else {
+			setIsRunning({
+				position: songList.length - 1,
+				name: songList[songList.length - 1].name,
+				url: songList[songList.length - 1].url,
+				id: songList[songList.length - 1].id,
+			});
+		}
 	};
 
 	return (
@@ -45,11 +84,12 @@ const MusicPlayer = () => {
 											return (
 												<li
 													onClick={() => {
-														setUrlsong(
-															"https://assets.breatheco.de/apis/sound/" +
-																song.url
-														);
-														setNamesong(song.name);
+														setIsRunning({
+															id: song.id,
+															position: index,
+															name: song.name,
+															url: song.url,
+														});
 													}}
 													className="song d-flex justify-content-between text-capitalize p-1"
 													key={index}>
@@ -74,26 +114,45 @@ const MusicPlayer = () => {
 								Esta sonando:{" "}
 							</span>
 							<span className="fw-bold text-decoration-underline isplaying">
-								{namesong ? namesong.toUpperCase() : ""}
+								{isRunning.name
+									? isRunning.name.toUpperCase()
+									: ""}
 							</span>
 						</div>
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="col-2 d-flex justify-content-center">
-						<img clasName="song_controls" src={lastsong} />
+					<div className="col-2 d-flex justify-content-center buttons_song">
+						<button
+							className="NextAndLast"
+							onClick={() => {
+								LastSong();
+							}}>
+							{" "}
+							<i className="fas fa-backward"></i>{" "}
+						</button>
 					</div>
 					<div className="col-8">
 						<audio
 							className="audiocontrols mt-3"
 							controls
 							autoPlay
-							src={urlsong}
+							onEnded={() => {
+								NextSong();
+							}}
+							src={URLAPI.concat("/" + isRunning.url)}
 						/>
 					</div>
-					<div className="col-2 d-flex justify-content-center">
-						<img clasName="song_controls" src={nextsong} />
+					<div className="col-2 d-flex justify-content-center buttons_song">
+						<button
+							className="NextAndLast"
+							onClick={() => {
+								NextSong();
+							}}>
+							{" "}
+							<i className="fas fa-forward"></i>{" "}
+						</button>
 					</div>
 				</div>
 			</div>
