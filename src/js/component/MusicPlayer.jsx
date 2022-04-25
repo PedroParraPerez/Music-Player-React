@@ -88,7 +88,7 @@ const MusicPlayer = () => {
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<ul className="p-0">
+							<ul className="p-0 playlist">
 								{songList
 									? songList.map((song, index) => {
 											return (
@@ -101,8 +101,9 @@ const MusicPlayer = () => {
 															url: song.url,
 														});
 													}}
-													className="song d-flex justify-content-between text-capitalize p-1"
+													className="song d-flex justify-content-between text-capitalize p-1 "
 													key={index}>
+													{song.id + " "}
 													{song.name}
 													<span className="song_play_button ">
 														<img

@@ -22,8 +22,11 @@
 .buttons_song{
     display: flex;
     margin: auto;
-    
-
+}
+.playlist{
+    overflow-y: scroll;
+    height: 35rem;
+    margin: 10rem, 0;
 }
 .NextAndLast{
     width: 2rem;
