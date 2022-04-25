@@ -27,23 +27,29 @@ const MusicPlayer = () => {
 			});
 	};
 
+	function Song(name, position, url, id) {
+		this.name = name;
+		this.position = position;
+		this.url = url;
+		this.id = id;
+	}
+
 	const NextSong = () => {
 		let position = isRunning.position + 1;
 
 		if (position < songList.length) {
-			setIsRunning({
-				position: position,
-				name: songList[position].name,
-				url: songList[position].url,
-				id: songList[position].id,
-			});
+			setIsRunning(
+				new Song(
+					songList[position].name,
+					position,
+					songList[position].url,
+					songList[position].id
+				)
+			);
 		} else {
-			setIsRunning({
-				position: 0,
-				name: songList[0].name,
-				url: songList[0].url,
-				id: songList[0].id,
-			});
+			setIsRunning(
+				new Song(0, songList[0].name, songList[0].url, songList[0].id)
+			);
 		}
 	};
 
@@ -51,19 +57,23 @@ const MusicPlayer = () => {
 		let position = isRunning.position - 1;
 
 		if (position > 0) {
-			setIsRunning({
-				position: position,
-				name: songList[position].name,
-				url: songList[position].url,
-				id: songList[position].id,
-			});
+			setIsRunning(
+				new Song(
+					songList[position].name,
+					position,
+					songList[position].url,
+					songList[position].id
+				)
+			);
 		} else {
-			setIsRunning({
-				position: songList.length - 1,
-				name: songList[songList.length - 1].name,
-				url: songList[songList.length - 1].url,
-				id: songList[songList.length - 1].id,
-			});
+			setIsRunning(
+				new Song(
+					songList[songList.length - 1].name,
+					songList.length - 1,
+					songList[songList.length - 1].url,
+					songList[songList.length - 1].id
+				)
+			);
 		}
 	};
 
